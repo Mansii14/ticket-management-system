@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ticket System</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div id="auth-screen" class="auth-screen">
+    <div class="auth-card">
+      <h1>Ticket system</h1>
+      <p class="muted" id="auth-subtitle">Sign in to continue.</p>
+      <form id="auth-form">
+        <div id="name-field" class="field hidden">
+          <label for="name">Name</label>
+          <input id="name" type="text" autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" autocomplete="current-password" required />
+        </div>
+        <p id="auth-error" class="error hidden"></p>
+        <button type="submit" id="auth-submit">Sign in</button>
+      </form>
+      <button id="auth-toggle" class="link-btn">Need an account? Register</button>
+    </div>
+  </div>
+
+  <div id="app-screen" class="app-screen hidden">
+    <header class="topbar">
+      <h1>Ticket system</h1>
+      <div class="topbar-right">
+        <span id="me-name" class="muted"></span>
+        <button id="logout-btn">Sign out</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="stats">
+        <div class="stat-card"><p class="stat-label">Open</p><p class="stat-value" id="stat-open">0</p></div>
+        <div class="stat-card"><p class="stat-label">In progress</p><p class="stat-value" id="stat-progress">0</p></div>
+        <div class="stat-card"><p class="stat-label">Closed</p><p class="stat-value" id="stat-closed">0</p></div>
+      </section>
+
+      <section class="card">
+        <p class="card-title">New ticket</p>
+        <form id="ticket-form">
+          <div class="row">
+            <input id="t-title" type="text" placeholder="Ticket title" required />
+            <select id="t-priority">
+              <option value="low">Low priority</option>
+              <option value="medium" selected>Medium priority</option>
+              <option value="high">High priority</option>
+            </select>
+            <select id="t-assignee">
+              <option value="">Unassigned</option>
+            </select>
+          </div>
+          <textarea id="t-desc" placeholder="Description (optional)"></textarea>
+          <button type="submit">Create ticket</button>
+        </form>
+      </section>
+
+      <section class="filters">
+        <input id="search" type="text" placeholder="Search tickets" />
+        <select id="filter-status">
+          <option value="all">All statuses</option>
+          <option value="open">Open</option>
+          <option value="in_progress">In progress</option>
+          <option value="closed">Closed</option>
+        </select>
+        <select id="filter-priority">
+          <option value="all">All priorities</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+      </section>
+
+      <section id="ticket-list" class="ticket-list"></section>
+      <p id="empty-msg" class="muted hidden">No tickets match your filters.</p>
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

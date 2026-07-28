@@ -1,0 +1,142 @@
+:root {
+  --bg: #f5f4f0;
+  --surface: #ffffff;
+  --border: #e2e0d8;
+  --text: #1f1e1c;
+  --text-muted: #6b6a64;
+  --accent: #185fa5;
+  --danger: #a32d2d;
+  --radius: 8px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.hidden { display: none !important; }
+.muted { color: var(--text-muted); font-size: 14px; }
+.error { color: var(--danger); font-size: 13px; }
+
+h1 { font-size: 20px; font-weight: 500; margin: 0; }
+
+input, select, textarea, button {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+textarea { width: 100%; min-height: 60px; resize: vertical; }
+
+button {
+  cursor: pointer;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+button:hover { background: #efeee8; }
+
+button[type="submit"], #auth-submit {
+  background: var(--text);
+  color: var(--surface);
+  border-color: var(--text);
+}
+button[type="submit"]:hover, #auth-submit:hover { opacity: 0.9; }
+
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+/* Auth screen */
+.auth-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.auth-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  width: 100%;
+  max-width: 360px;
+}
+.auth-card h1 { margin-bottom: 4px; }
+.field { margin: 14px 0; display: flex; flex-direction: column; gap: 4px; }
+.field label { font-size: 13px; color: var(--text-muted); }
+.field input, #auth-form button { width: 100%; }
+#auth-submit { margin-top: 6px; }
+
+/* App screen */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.topbar-right { display: flex; align-items: center; gap: 12px; }
+
+.main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.stats { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; flex: 1; min-width: 120px; }
+.stat-label { font-size: 13px; color: var(--text-muted); margin: 0 0 4px; }
+.stat-value { font-size: 24px; font-weight: 500; margin: 0; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+}
+.card-title { font-size: 14px; font-weight: 500; margin: 0 0 10px; }
+.row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+.row > * { width: 100%; }
+
+.filters { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.filters #search { flex: 1; min-width: 160px; }
+
+.ticket-list { display: flex; flex-direction: column; gap: 8px; }
+.ticket {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.ticket-main { flex: 1; min-width: 0; }
+.ticket-title-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+.ticket-title { font-weight: 500; font-size: 14px; }
+.badge { font-size: 11px; padding: 2px 8px; border-radius: var(--radius); }
+.badge-high { background: #fcebeb; color: #791f1f; }
+.badge-medium { background: #faeeda; color: #633806; }
+.badge-low { background: #f1efe8; color: #444441; }
+.ticket-desc { font-size: 13px; color: var(--text-muted); margin: 0 0 6px; }
+.ticket-meta { font-size: 12px; color: var(--text-muted); margin: 0; }
+.ticket-actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.ticket-actions select { width: auto; height: 32px; font-size: 12px; }
+.ticket-actions button { width: 32px; height: 32px; padding: 0; }
